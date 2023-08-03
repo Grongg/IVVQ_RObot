@@ -76,6 +76,7 @@ CRE-SC1-N01
     Sleep    3
     Input Text    ${TELEPHONE_FIELD}               ${FAKE_PHONE}
     Sleep    6
+    Click Button    xpath=//*[@id="nextStepBtn"]
 
 
 CRE-SC2-E001
@@ -98,27 +99,27 @@ CRE-SC2-E001
     Element Should Be Visible    ${MSG_NOM}
     Element Should Be Visible    ${MSG_TELEPHONE}
 
-    Close Browser
+    #Close Browser
 
         
-
-
-    
     
 
-CRE-SC4-N01
+CRE-SC1-N01-4
+    ${FAKE_ADRESS}=    FakerLibrary.Address
+    ${FAKE_ZIP}=       FakerLibrary.Zipcode
+    ${FAKE_CITY}=      FakerLibrary.City
     Input Text    ${ADRESS_FIELD}    ${FAKE_ADRESS}
-    Sleep    5
+    Sleep    8
     Input Text    ${ZIP_FIELD}    ${FAKE_ZIP}
-    Sleep    5
+    Sleep    6
     Input Text    ${CITY_FIELD}    ${FAKE_CITY}
     Sleep    10
 
-CRE-SC6-N01
+CRE-SC1-N01-6
     Click Button    ${FINISH_ADRESS_BTN}
     Element Should Be Visible    ${ACCOUNT_DROPDOWN}
     Element Should Be Visible    ${ACCOUNT}
 
-CRE-SC7-N01
+CRE-SC1-N01-7
     ${txt}=    Get Text    ${MSG-CRE-013}
     Should Be Equal    ${MSG-CRE-013}    Félicitations ! Votre compte a bien été créé.    
