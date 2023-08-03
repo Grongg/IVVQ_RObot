@@ -9,6 +9,24 @@ Resource  variables.robot
 OpenBrowserRaja
     Open Browser    https://www.raja.fr/    chrome
     Click Button    xpath=/html/body/div[4]/div[2]/button
+    #Faker
+    ${FAKE_MAIL}    FakerLibrary.Email
+    Set Global Variable    ${FAKE_MAIL}         ${FAKE_MAIL}
+    ${FAKE_FIRSTNAME}    FakerLibrary.first_name
+    Set Global Variable    ${FAKE_FIRSTNAME}    ${FAKE_FIRSTNAME}
+    ${FAKE_LASTNAME}    FakerLibrary.last_name
+    Set Global Variable    ${FAKE_LASTNAME}     ${FAKE_LASTNAME}
+    ${FAKE_PHONE}    FakerLibrary.Phone Number
+    Set Global Variable    ${FAKE_PHONE}        ${FAKE_PHONE}
+    ${FAKE_PASSWORD}    FakerLibrary.Password
+    Set Global Variable    ${FAKE_PASSWORD}     ${FAKE_PASSWORD}
+    ${FAKE_ADRESS}    FakerLibrary.Address
+    Set Global Variable    ${FAKE_ADRESS}       ${FAKE_ADRESS}
+    ${FAKE_ZIP}    FakerLibrary.Zip
+    Set Global Variable    ${FAKE_ZIP}          ${FAKE_ZIP}
+    ${FAKE_CITY}    FakerLibrary.City
+    Set Global Variable    ${FAKE_CITY}         ${FAKE_CITY}
+
 
 Scroll To Element
     [Arguments]  ${locator}
@@ -17,10 +35,9 @@ Scroll To Element
     Execute Javascript  window.scrollTo(${x}, ${y})
 
 Register Created User
-    Open Excel Document   ${data}   1
-    ${nbRows}=    Get Length     $(data)
+    ${datas}=    Open Excel Document   ${data}   1
+    ${nbRows}=    Get Length    $(datas)
     Log    ${nbRows}
-#niquel ça
 
 GetRandomListElement
     [Arguments]    ${list}
@@ -40,21 +57,25 @@ CRE-SC1-N01
     Sleep    5
     Click Button     ${CREATE_ACCNT_BTN}
     Sleep    3
-    # Click Element    ${STATUT_FIELD_PARTICULIER}
-    # Sleep    5
-    # Input Text       ${ADRESSE_EMAIL_FIELD}    ${FAKE_MAIL}
-    # Sleep    8   
-    # Input Password   ${MOT_DE_PASSE_FIELD}     ${FAKE_PASSWORD}
-    # Sleep    6
-    # Scroll To Element    ${REMEMBERME_CHECKBOX}
-    # Sleep    3
-    # Click Element    ${REMEMBERME_CHECKBOX}
-    # Sleep    3
-    ${index}    GetRandomListElement    ${CIVILITE_FIELD}
-    Select From List By Index   ${CIVILITE_FIELD}    ${index}
+    Click Element    ${STATUT_FIELD_PARTICULIER}
+    Sleep    5
+    Input Text       ${ADRESSE_EMAIL_FIELD}        ${FAKE_MAIL}
+    Sleep    8   
+    Input Password   ${MOT_DE_PASSE_FIELD}         ${FAKE_PASSWORD}
     Sleep    6
-    Input Text    ${PRENOM_FIELD}    ${FAKE_FIRSTNAME}
+    Scroll To Element    ${REMEMBERME_CHECKBOX}
+    Sleep    3
+    Click Element        ${REMEMBERME_CHECKBOX}
+    Sleep    3
+    ${index}  GetRandomListElement  ${CIVILITE_FIELD}
+    Select From List By Index       ${CIVILITE_FIELD}  ${index}
+    Sleep    6
+    Input Text    ${PRENOM_FIELD}                  ${FAKE_FIRSTNAME}
     Sleep    4
+    Input Text    ${NOM_FIELD}                     ${FAKE_LASTNAME}
+    Sleep    3
+    Input Text    ${TELEPHONE_FIELD}               ${FAKE_PHONE}
+    Sleep    6
 
 
 CRE-SC2-E001
@@ -79,7 +100,7 @@ CRE-SC2-E001
 
     Close Browser
 
-    
+        
 
 
     

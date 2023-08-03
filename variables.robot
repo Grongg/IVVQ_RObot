@@ -12,8 +12,8 @@ ${MOT_DE_PASSE_FIELD}     xpath=//*[@id="NewPwdPassword"]
 ${REMEMBERME_CHECKBOX}    xpath=//*[@id="userInfoForm"]/div/div[4]/div/label/span[1]
 ${CIVILITE_FIELD}         xpath=//*[@id="civilitie"]
 ${PRENOM_FIELD}           xpath=//*[@id="InfoFirstname"]
-${NOM_FIELD}              css:#nom
-${TELEPHONE_FIELD}        css:#telephone
+${NOM_FIELD}              xpath=//*[@id="InfoLastname"]
+${TELEPHONE_FIELD}        xpath=//*[@id="directPhone"]
 
 ${ADRESS_FIELD}          xpath=//*[@id="CompaniesAddress"]
 ${ZIP_FIELD}             xpath=//*[@id="CompaniesPostCode"]
@@ -23,18 +23,6 @@ ${FINISH_ADRESS_BTN}     xpath=//*[@id="submitAllForm"]
 ${ACCOUNT}               xpath=//*[@id="dropdown-account"]/span[2]
 ${ACCOUNT_DROPDOWN}      xpath=//*[@id="dropdown-block"]/section
 ${MSG-CRE-013}           xpath=//*[@id="dropdown-block"]/section/div/span[2]
-
-
-#Faker
-${FAKE_MAIL}         FakerLibrary.Email
-${FAKE_FIRSTNAME}    FakerLibrary.first_name
-${FAKE_LASTNAME}     FakerLibrary.Last Name
-${FAKE_PHONE}        FakerLibrary.Phone Number
-${FAKE_PASSWORD}     FakerLibrary.Password
-${FAKE_ADRESS}       FakerLibrary.Address
-${FAKE_ZIP}          FakerLibrary.Zipcode
-${FAKE_CITY}         FakerLibrary.City
-
 
 ${MSG_STATUT}             xpath://div[@id='MSG-CRE-001']
 ${MSG_ADRESSE_EMAIL}      xpath://div[@id='MSG-CRE-002']
