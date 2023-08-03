@@ -19,16 +19,18 @@ Scroll To Element
 Register Created User
     Open Excel Document   ${data}   1
     ${nbRows}=    Get Length     $(data)
-    Log To Console    ${nbRows}
+    Log    ${nbRows}
 #niquel ça
 
 GetRandomListElement
     [Arguments]    ${list}
     ${tmplist}    Get List Items    ${list}
-    Log To Console    ${tmplist}
+    Remove From List    ${tmplist}    0
     ${size}    Get Length    ${tmplist}
-    ${numbers}    Evaluate    random.sample(range(0, ${size}), 1)    random
+    Log To Console    size=${size}
+    ${numbers}    Evaluate    random.sample(range(1, ${size + 1}), 1)    random
     ${number}    Get From List   ${numbers}    0
+    Log To Console    ${number}
     ${number}    Convert To String    ${number}
     [Return]    ${number}
     
@@ -40,8 +42,8 @@ CRE-SC1-N01
     Sleep    3
     # Click Element    ${STATUT_FIELD_PARTICULIER}
     # Sleep    5
-    Input Text       ${ADRESSE_EMAIL_FIELD}    ${FAKE_MAIL}
-    Sleep    8   
+    # Input Text       ${ADRESSE_EMAIL_FIELD}    ${FAKE_MAIL}
+    # Sleep    8   
     # Input Password   ${MOT_DE_PASSE_FIELD}     ${FAKE_PASSWORD}
     # Sleep    6
     # Scroll To Element    ${REMEMBERME_CHECKBOX}

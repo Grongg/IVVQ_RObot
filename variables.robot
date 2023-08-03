@@ -26,7 +26,7 @@ ${MSG-CRE-013}           xpath=//*[@id="dropdown-block"]/section/div/span[2]
 
 
 #Faker
-${FAKE_MAIL}         FakerLibrary.email
+${FAKE_MAIL}         FakerLibrary.Email
 ${FAKE_FIRSTNAME}    FakerLibrary.first_name
 ${FAKE_LASTNAME}     FakerLibrary.Last Name
 ${FAKE_PHONE}        FakerLibrary.Phone Number
@@ -46,4 +46,4 @@ ${MSG_TELEPHONE}          xpath://div[@id='MSG-CRE-003']
 
 ${SUIVANT_BUTTON}         xpath://*[@id="nextStepBtn"]
 
-${data}    /ressources/RajaJDD__300__0.xlsx
+${data}    ressources/RajaJDD__300__0.xlsx

@@ -15,7 +15,7 @@ Creer_profil_champ_obligatoire_vide
 
 Register
     [Tags]    Registered
-    Register Created User
+    Run Keyword And Continue On Failure    Register Created User
     
 # Se connecter
 
