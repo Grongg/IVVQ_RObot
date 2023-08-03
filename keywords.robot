@@ -50,7 +50,7 @@ GetRandomListElement
     [Return]    ${number}
     
 
-CRE-SC1-N01
+CRE-SC1-N01-2-3
     Click Element    ${CREATE_ACCNT_ICON}
     Sleep    5
     Click Button     ${CREATE_ACCNT_BTN}
@@ -77,10 +77,30 @@ CRE-SC1-N01
     Click Button    ${SUIVANT_BTN}
     Sleep    3
 
+CRE-SC1-N01-4
+    ${FAKE_ADRESS}=    FakerLibrary.Address
+    ${FAKE_ZIP}=       FakerLibrary.Zipcode
+    ${FAKE_CITY}=      FakerLibrary.City
+    Input Text    ${ADRESS_FIELD}    ${FAKE_ADRESS}
+    Sleep    8
+    Input Text    ${ZIP_FIELD}    ${FAKE_ZIP}
+    Sleep    6
+    Input Text    ${CITY_FIELD}    ${FAKE_CITY}
+    Sleep    10
+
+CRE-SC1-N01-5-6
+    Click Button    ${FINISH_ADRESS_BTN}
+    Element Should Be Visible    ${ACCOUNT_DROPDOWN}
+    Element Should Be Visible    ${ACCOUNT}
+
+CRE-SC1-N01-7
+    ${txt}=    Get Text    ${MSG-CRE-013}
+    Should Be Equal    ${MSG-CRE-013}    Félicitations ! Votre compte a bien été créé.    
+
 
 CRE-SC2-E001
     #Vérifier Champs Obligatoires Vides
-    Open Browser    https://www.raja.fr/    chrome
+    # Open Browser    https://www.raja.fr/    chrome
     # Effectuez les actions pour arriver à l'écran CRE-E001
 
     # Vérifiez que le bouton "Suivant" est grisé
@@ -102,23 +122,3 @@ CRE-SC2-E001
 
         
     
-
-CRE-SC1-N01-4
-    ${FAKE_ADRESS}=    FakerLibrary.Address
-    ${FAKE_ZIP}=       FakerLibrary.Zipcode
-    ${FAKE_CITY}=      FakerLibrary.City
-    Input Text    ${ADRESS_FIELD}    ${FAKE_ADRESS}
-    Sleep    8
-    Input Text    ${ZIP_FIELD}    ${FAKE_ZIP}
-    Sleep    6
-    Input Text    ${CITY_FIELD}    ${FAKE_CITY}
-    Sleep    10
-
-CRE-SC1-N01-6
-    Click Button    ${FINISH_ADRESS_BTN}
-    Element Should Be Visible    ${ACCOUNT_DROPDOWN}
-    Element Should Be Visible    ${ACCOUNT}
-
-CRE-SC1-N01-7
-    ${txt}=    Get Text    ${MSG-CRE-013}
-    Should Be Equal    ${MSG-CRE-013}    Félicitations ! Votre compte a bien été créé.    
