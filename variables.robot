@@ -15,6 +15,8 @@ ${PRENOM_FIELD}           xpath=//*[@id="InfoFirstname"]
 ${NOM_FIELD}              xpath=//*[@id="InfoLastname"]
 ${TELEPHONE_FIELD}        xpath=//*[@id="directPhone"]
 
+${SUIVANT_BTN}            xpath=//*[@id="nextStepBtn"]
+
 ${ADRESS_FIELD}          xpath=//*[@id="CompaniesAddress"]
 ${ZIP_FIELD}             xpath=//*[@id="CompaniesPostCode"]
 ${CITY_FIELD}            xpath=//*[@id="CompaniesCity"]

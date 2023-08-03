@@ -9,6 +9,7 @@ Resource  variables.robot
 OpenBrowserRaja
     Open Browser    https://www.raja.fr/    chrome
     Click Button    xpath=/html/body/div[4]/div[2]/button
+    
     #Faker
     ${FAKE_MAIL}    FakerLibrary.Email
     Set Global Variable    ${FAKE_MAIL}         ${FAKE_MAIL}
@@ -27,7 +28,6 @@ OpenBrowserRaja
     ${FAKE_CITY}    FakerLibrary.City
     Set Global Variable    ${FAKE_CITY}         ${FAKE_CITY}
 
-
 Scroll To Element
     [Arguments]  ${locator}
     ${x}=        Get Horizontal Position  ${locator}
@@ -37,17 +37,15 @@ Scroll To Element
 Register Created User
     ${datas}=    Open Excel Document   ${data}   1
     ${nbRows}=    Get Length    $(datas)
-    Log    ${nbRows}
+    # Log    ${nbRows}
 
 GetRandomListElement
     [Arguments]    ${list}
     ${tmplist}    Get List Items    ${list}
     Remove From List    ${tmplist}    0
     ${size}    Get Length    ${tmplist}
-    Log To Console    size=${size}
     ${numbers}    Evaluate    random.sample(range(1, ${size + 1}), 1)    random
     ${number}    Get From List   ${numbers}    0
-    Log To Console    ${number}
     ${number}    Convert To String    ${number}
     [Return]    ${number}
     
@@ -76,6 +74,8 @@ CRE-SC1-N01
     Sleep    3
     Input Text    ${TELEPHONE_FIELD}               ${FAKE_PHONE}
     Sleep    6
+    Click Button    ${SUIVANT_BTN}
+    Sleep    3
 
 
 CRE-SC2-E001
