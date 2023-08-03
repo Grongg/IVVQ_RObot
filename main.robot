@@ -1,6 +1,10 @@
 *** Settings ***
 Resource  keywords.robot
+Suite Setup    OpenBrowserRaja
+Suite Teardown    Close All Browsers
 
 *** Test Cases ***
-test
-    test init
+
+Creer un profil
+    CRE-SC1-001
+
