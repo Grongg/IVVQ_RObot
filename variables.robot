@@ -22,9 +22,10 @@ ${ZIP_FIELD}             xpath=//*[@id="CompaniesPostCode"]
 ${CITY_FIELD}            xpath=//*[@id="CompaniesCity"]
 ${FINISH_ADRESS_BTN}     xpath=//*[@id="submitAllForm"]
 
-${ACCOUNT}               xpath=//*[@id="dropdown-account"]/span[2]
-${ACCOUNT_DROPDOWN}      xpath=//*[@id="dropdown-block"]/section
+${ACCOUNT}               xpath=//*[@id="dropdown-account"]
+${ACCOUNT_DROPDOWN}      xpath=//*[@id="dropdown-block"]
 ${MSG-CRE-013}           xpath=//*[@id="dropdown-block"]/section/div/span[2]
+${MSG_SUCCESS_USER}=    Félicitations ! Votre compte a bien été créé.
 
 ${MSG_STATUT}             xpath://div[@id='MSG-CRE-001']
 ${MSG_ADRESSE_EMAIL}      xpath://div[@id='MSG-CRE-002']
@@ -37,3 +38,8 @@ ${MSG_TELEPHONE}          xpath://div[@id='MSG-CRE-003']
 ${SUIVANT_BUTTON}         xpath://*[@id="nextStepBtn"]
 
 ${data}    ressources/RajaJDD__300__0.xlsx
+
+${USER_FIELD}                   xpath=//*[@id="UserLoginDropdown"]
+${PASSWORD_FIELD}               xpath=//*[@id="UserPasswordDropdown"]
+${REMEMBERME_LOGIN_CHECKBOX}    xpath=//*[@id="stayConnect"]
+${LOGIN_BTN}                    xpath=//*[@id="dropdownConnexion"]/div[3]/button
