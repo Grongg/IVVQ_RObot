@@ -121,6 +121,21 @@ CRE-SC2-E001
     #Close Browser
 
 CRE-SC3-E001
-    Click Button    ${SUIVANT_BUTTON}
-    
+
+    Click Element    ${CREATE_ACCNT_ICON}
+    Sleep    5
+    Click Button     ${CREATE_ACCNT_BTN}
+    Sleep    3
+    Scroll To Element    ${SUIVANT_BTN}
+    Sleep    3
+    Click Button    ${SUIVANT_BTN}
+    Element Should Be Disabled    ${SUIVANT_BTN}
+    sleep    3
+    # FOR  ${i}  IN  1    8
+        ${tmp}    Get Element Attribute    xpath=//div/div[2]/div/label[2]    data-cy
+        ${txt}    Get Text    css:.error-msg    
+        Log to console    tmp=${tmp} txt=${txt}
+    # END
+
+
     #check data-cy error msg in span. get all class=error-msg elements and check text value with RG
