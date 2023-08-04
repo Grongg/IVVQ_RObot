@@ -6,6 +6,7 @@ Test Setup    OpenBrowserRaja
 *** Test Cases ***
 
 Creer un profil
+    [Tags]    Profil
     CRE-SC1-N01-2-3
     CRE-SC1-N01-4
     CRE-SC1-N01-5-6
@@ -14,10 +15,10 @@ Creer un profil
 Creer_profil_champ_obligatoire_vide
     CRE-SC2-E001
 
-# Creer_profil_mauvais_format_de_donnees_renseignees
-#     CRE-SC3-E001
+ #Creer_profil_mauvais_format_de_donnees_renseignees
+    #CRE-SC3-E001
 
-Register
+ Register
     [Tags]    Registered
     Run Keyword And Continue On Failure    Register Created User
     

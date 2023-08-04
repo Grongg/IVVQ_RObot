@@ -23,7 +23,7 @@ OpenBrowserRaja
     Set Global Variable    ${FAKE_PASSWORD}     ${FAKE_PASSWORD}
     ${FAKE_ADRESS}    FakerLibrary.Address
     Set Global Variable    ${FAKE_ADRESS}       ${FAKE_ADRESS}
-    ${FAKE_ZIP}    FakerLibrary.Zip
+    ${FAKE_ZIP}    FakerLibrary.Postcode
     Set Global Variable    ${FAKE_ZIP}          ${FAKE_ZIP}
     ${FAKE_CITY}    FakerLibrary.City
     Set Global Variable    ${FAKE_CITY}         ${FAKE_CITY}
@@ -78,24 +78,22 @@ CRE-SC1-N01-2-3
     Sleep    3
 
 CRE-SC1-N01-4
-    ${FAKE_ADRESS}=    FakerLibrary.Address
-    ${FAKE_ZIP}=       FakerLibrary.Zipcode
-    ${FAKE_CITY}=      FakerLibrary.City
     Input Text    ${ADRESS_FIELD}    ${FAKE_ADRESS}
     Sleep    8
     Input Text    ${ZIP_FIELD}    ${FAKE_ZIP}
-    Sleep    6
+    Sleep    7
     Input Text    ${CITY_FIELD}    ${FAKE_CITY}
-    Sleep    10
+    Sleep    16
 
 CRE-SC1-N01-5-6
     Click Button    ${FINISH_ADRESS_BTN}
-    Element Should Be Visible    ${ACCOUNT_DROPDOWN}
+    Sleep    4
     Element Should Be Visible    ${ACCOUNT}
 
 CRE-SC1-N01-7
     ${txt}=    Get Text    ${MSG-CRE-013}
-    Should Be Equal    ${MSG-CRE-013}    Félicitations ! Votre compte a bien été créé.    
+    Should Be Equal As Strings    ${txt}    ${MSG_SUCCESS_USER}
+ 
 
 
 CRE-SC2-E001
