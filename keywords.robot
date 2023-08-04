@@ -118,5 +118,7 @@ CRE-SC2-E001
 
     #Close Browser
 
-        
+CRE-SC3-E001
+    Click Button    ${SUIVANT_BUTTON}
     
+    #check data-cy error msg in span. get all class=error-msg elements and check text value with RG
