@@ -13,7 +13,7 @@ Creer un profil
     CRE-SC1-N01-7
 
 Creer_profil_champ_obligatoire_vide
-        [Tags]    ChampVide
+    [Tags]    ChampVide
     CRE-SC2-E001
 
 Creer_profil_mauvais_format_de_donnees_renseignees
