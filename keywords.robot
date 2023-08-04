@@ -116,25 +116,58 @@ CRE-SC1-N01-7
 
 CRE-SC2-E001
     #Vérifier Champs Obligatoires Vides
-    # Open Browser    https://www.raja.fr/    chrome
-    # Effectuez les actions pour arriver à l'écran CRE-E001
+    #Open Browser    https://www.raja.fr/    chrome
+    # Cliquer sur Continuer sans accepter
+    #Click Button    xpath=/html/body/div[4]/div[2]/button 
+    
+    Click Element    ${CREATE_ACCNT_ICON}
+    Sleep    5
+    Click Button     ${CREATE_ACCNT_BTN}
+    Sleep    3
 
-    # Vérifiez que le bouton "Suivant" est grisé
-    Element Should Be Disabled    ${SUIVANT_BUTTON}
+    Scroll To Element    ${SUIVANT_BUTTON}
 
     # Cliquez sur le bouton "Suivant" sans remplir les champs obligatoires
     Click Button    ${SUIVANT_BUTTON}
+    # Click Button    xpath=//*[@id="nextStepBtn"]
+    # Sleep    3
+    
+Check Error Messages And Red Fields
+    # Vérifier que les champs obligatoires passent au rouge
+    Wait Until Element Is Visible    xpath=//input[@id='Particulier'][contains(@style,'border-color: red')]
+    Wait Until Element Is Visible    xpath=//input[@id='adresse_email'][contains(@style,'border-color: red')]
+    Wait Until Element Is Visible    xpath=//input[@id='mot_de_passe'][contains(@style,'border-color: red')]
+    Wait Until Element Is Visible    xpath=//input[@id='civilitie'][contains(@style,'border-color: red')]
+    Wait Until Element Is Visible    xpath=//input[@id='prenom'][contains(@style,'border-color: red')]
+    Wait Until Element Is Visible    xpath=//input[@id='nom'][contains(@style,'border-color: red')]
+    Wait Until Element Is Visible    xpath=//input[@id='telephone'][contains(@style,'border-color: red')]
 
-    # Vérifiez les messages d'erreur pour chaque champ vide
-    Element Should Be Visible    ${MSG_STATUT}
-    Element Should Be Visible    ${MSG_ADRESSE_EMAIL}
-    Element Should Be Visible    ${MSG_MOT_DE_PASSE}
-    Element Should Be Visible    ${MSG_CIVILITE}
-    Element Should Be Visible    ${MSG_PRENOM}
-    Element Should Be Visible    ${MSG_NOM}
-    Element Should Be Visible    ${MSG_TELEPHONE}
+    # Vérifier que les messages d'erreur s'affichent
+    Wait Until Element Is Visible    xpath=//span[text()='Particulier (MSG-CRE-001)']
+    Wait Until Element Is Visible    xpath=//span[text()='Adresse électronique (MSG-CRE-002)']
+    Wait Until Element Is Visible    xpath=//span[text()='Mot de passe (MSG-CRE-002)']
+    Wait Until Element Is Visible    xpath=//span[text()='Civilité (MSG-CRE-00)']
+    Wait Until Element Is Visible    xpath=//span[text()='Prénom (MSG-CRE-002)']
+    Wait Until Element Is Visible    xpath=//span[text()='Nom (MSG-CRE-002)']
+    Wait Until Element Is Visible    xpath=//span[text()='Téléphone (MSG-CRE-003)']
 
-    #Close Browser
+    # Vérifier que le bouton "Suivant" est grisé
+    Element Should Be Disabled    xpath=//button[text()='Suivant']
+
+    # # Vérifiez les messages d'erreur pour chaque champ vide
+    # Element Should Be Visible    ${MSG_STATUT}
+    # Element Should Be Visible    ${MSG_ADRESSE_EMAIL}
+    # Element Should Be Visible    ${MSG_MOT_DE_PASSE}
+    # Element Should Be Visible    ${MSG_CIVILITE}
+    # Element Should Be Visible    ${MSG_PRENOM}
+    # Element Should Be Visible    ${MSG_NOM}
+    # Element Should Be Visible    ${MSG_TELEPHONE}
+
+    # Element Should Be Visible    ${MSG_NUM_VOIE}
+    # Element Should Be Visible    ${MSG_CODE_POSTAL}
+    # Element Should Be Visible    ${MSG_VILLE}
+
+    # Close Browser
 
 CRE-SC3-E001
 
