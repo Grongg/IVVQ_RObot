@@ -50,6 +50,24 @@ GetRandomListElement
     [Return]    ${number}
     
 
+GetDatasConnexion
+    [Tags]    data
+    [Arguments]     ${feuille}        ${ligne}
+    Open Excel Document    ${data}    1
+    ${user_data} =        Read Excel Cell        ${ligne}        3        ${feuille} 
+    ${password_data} =        Read Excel Cell        ${ligne}        4        ${feuille}
+    Set Global Variable    ${user_data}
+    Set Global Variable    ${password_data}
+    Close All Excel Documents
+
+Login
+    [Arguments]     ${feuille}        ${ligne}
+    GetDatasConnexion  ${feuille}        ${ligne}
+    #Reload Page
+    Input Text    ${USER_FIELD}    ${user_data}
+    Sleep    3
+    Input Text    ${PASSWORD_FIELD}    ${password_data}
+
 CRE-SC1-N01-2-3
     Click Element    ${CREATE_ACCNT_ICON}
     Sleep    5
@@ -122,3 +140,14 @@ CRE-SC3-E001
     Click Button    ${SUIVANT_BUTTON}
     
     #check data-cy error msg in span. get all class=error-msg elements and check text value with RG
+
+AUT-SC1-N01-2-3a
+    Click Element    ${CREATE_ACCNT_ICON}
+    Sleep    3
+    Login    connexion    3
+    Sleep    5
+    Click Element    ${REMEMBERME_LOGIN_CHECKBOX}
+    Sleep    3
+    Click Button    ${LOGIN_BTN}
+    Element Should Be Visible    ${ACCOUNT}
+    

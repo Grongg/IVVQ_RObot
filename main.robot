@@ -12,7 +12,7 @@ Creer un profil
     CRE-SC1-N01-5-6
     CRE-SC1-N01-7
 
-Creer_profil_champ_obligatoire_vide
+#Creer_profil_champ_obligatoire_vide
     CRE-SC2-E001
 
  #Creer_profil_mauvais_format_de_donnees_renseignees
@@ -21,6 +21,10 @@ Creer_profil_champ_obligatoire_vide
  Register
     [Tags]    Registered
     Run Keyword And Continue On Failure    Register Created User
+
+Connexion
+    [Tags]    Connect
+    AUT-SC1-N01-2
     
 # Se connecter
 

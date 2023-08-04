@@ -38,3 +38,8 @@ ${MSG_TELEPHONE}          xpath://div[@id='MSG-CRE-003']
 ${SUIVANT_BUTTON}         xpath://*[@id="nextStepBtn"]
 
 ${data}    ressources/RajaJDD__300__0.xlsx
+
+${USER_FIELD}                   xpath=//*[@id="UserLoginDropdown"]
+${PASSWORD_FIELD}               xpath=//*[@id="UserPasswordDropdown"]
+${REMEMBERME_LOGIN_CHECKBOX}    xpath=//*[@id="stayConnect"]
+${LOGIN_BTN}                    xpath=//*[@id="dropdownConnexion"]/div[3]/button
